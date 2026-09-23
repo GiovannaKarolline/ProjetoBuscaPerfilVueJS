@@ -34,8 +34,10 @@
             <img :src="user.avatar_url" :alt="user.login" />
             <h2>{{ user.login }}</h2>
             <h6>{{ user.location }}</h6>
-            <h6>{{ user.public_repos }} repositórios</h6>
+            <h6>{{ user.public_repos }} repositórios públicos</h6>
             <h6>{{ user.followers }} seguidores</h6>
+            <br>
+            <a :href="user.html_url" target="_blank"><button>Acessar perfil</button></a>
 
         </div>
 
@@ -52,13 +54,6 @@ let user = ref({})
 let numeroErro = ref(0)
 let carregando = ref(false)
 let buscar = ref(true)
-
-// watchEffect({
-//     if(buscar){
-//         buscarUsuario()
-//         buscar = false
-//     }
-// })
 
 async function buscarUsuario() {
 
